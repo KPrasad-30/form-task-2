@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form-Table</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="form-table">
+            <div class="form">
+                <form class="register-form">
+                    <input type="text" placeholder="First Name" id="first-name">
+                    <input type="text" placeholder="Last Name" id="last-name">
+                    <input type="email" placeholder=" E-mail" id="email">
+                    <input type="text" placeholder="Phone" id="phone">
+                    <input type="text" placeholder="Type your message here..." id="message" maxlength="50">
+                    <label class="container">I agree to the terms and conditions.
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                      </label>
+                    <button onclick="validateForm();GenerateTable()">Submit</button>
+                    
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+    function validateForm()                                    
+    {
+        var name1=document.getElementById("first-name").value;
+        var name2=document.getElementById("last-name").value;
+        var email=document.getElementById("email").value;
+        var phone=document.getElementById("phone").value;
+        if(name1=="")
+        {
+            alert("Enter your first name!");
+        }
+        else if(name2=="")
+        {
+            alert("Enter your last name!")
+        }
+        else if(email=="")
+        {
+            alert("Enter your email id!")
+        }
+        else if(phone=="")
+        {
+            alert("Enter your phone number!")
+        }
+        else if(isNaN(phone))
+        {
+            alert("Invalid Phone Number!")
+        }
+    }
+    function GenerateTable() {
+        var entries = new Array();
+        entries.push(["First Name", "Last Name", "Email", "Phone", "Message"]);
+        entries.push([document.getElementById("first-name").value, document.getElementById("last-name").value,document.getElementById("email").value,document.getElementById("phone").value,document.getElementById("message").value]);
+         
+        //Create a HTML Table element.
+        var table = document.createElement("TABLE");
+        table.border = "1";
+ 
+        //Get the count of columns.
+        var columnCount = entries[0].length;
+ 
+        //Add the header row.
+        var row = table.insertRow(-1);
+        for (var i = 0; i < columnCount; i++) {
+            var headerCell = document.createElement("TH");
+            headerCell.innerHTML = entries[0][i];
+            row.appendChild(headerCell);
+        }
+ 
+        //Add the data rows.
+        for (var i = 1; i < entries.length; i++) {
+            row = table.insertRow(-1);
+            for (var j = 0; j < columnCount; j++) {
+                var cell = row.insertCell(-1);
+                cell.innerHTML = entries[i][j];
+            }
+        }
+ 
+        var dvTable = document.getElementById("dvTable");
+        dvTable.innerHTML = "";
+        dvTable.appendChild(table);
+    }
+    </script>
+</html>

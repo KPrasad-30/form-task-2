@@ -1,0 +1,99 @@
+body {
+  background-image: url(../css/background.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+body .form-table {
+  width: 360px;
+  padding: 5% 0 0;
+  vertical-align: middle;
+  margin: auto;
+}
+
+body .form {
+  background-color: #ffffff;
+  max-width: 360px;
+  padding: 45px;
+  margin: auto;
+  border: #0044cc;
+  border-block-color: #0044cc;
+}
+
+body .form-table input {
+  background: whitesmoke;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 14px;
+  color: #0044cc;
+}
+
+body .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+body .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+body .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+body .container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+body .container input:checked ~ .checkmark {
+  background-color: #0044cc;
+}
+
+body .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+body .container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+body .container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+body button {
+  background-color: #0044cc;
+  color: white;
+  height: 60px;
+  width: 270px;
+  font-size: 14px;
+  font-weight: bold;
+}
+/*# sourceMappingURL=style.css.map */
